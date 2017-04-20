@@ -4,6 +4,8 @@ SimpleAzureIoTCerts is a C#-based command-line application that demonstrates how
 
 You can learn more about Azure IoT Hub authentication on the [Control access to IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#supported-x509-certificates) page on the Azure documentation website.
 
+## What's included?
+
 To further your code-level understanding, SimpleAzureIoTCerts implements two key, high-level features:
 * Add Device
   * Registers a new device with Azure IoT Hub
