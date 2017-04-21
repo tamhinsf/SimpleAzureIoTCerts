@@ -12,7 +12,7 @@ SimpleAzureIoTCerts implements two key features:
   * Gives you the option of associating X.509 certificates (primary and secondary) with a device at time of registration in three different ways. Our goal is to give you patterns that you can clone into your own implementation. 
     * Embedded: The build process embeds X.509 certificates into the SimpleAzureIoTCerts binary.  The "Resources" folders contains the CRT and PFX files that will be included.
     * Bundled: The build process copies standalone X.509 certificate files we've pre-generated into the same directory the SimpleAzureIoTCerts binary is output into.  You can then specify these files by name during runtime when prompted for certificate filenames: primary.crt, primary.pfx, secondary.crt, secondary.pfx.
-    * Bring Your Own: Instead of using the pre-generated certificates files (CRT, PFX) we've described above, you use use OpenSSL to generate your own.  
+    * Bring Your Own: Instead of using the pre-generated certificates files (CRT, PFX) we've described above, you can use OpenSSL to generate your own.  
 * Delete (all) Devices - Deletes the first 1000 devices in an IoT Hub Registry.  This is particularly useful if you need to quickly delete all the devices in your registry.
 
 ## Setup a development environment
