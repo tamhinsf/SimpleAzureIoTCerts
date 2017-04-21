@@ -1,18 +1,18 @@
-# Use X.509 Certificates with Azure IoT Hub
+# Use X.509 Certificates to Authenticate with Azure IoT Hub
 
-SimpleAzureIoTCerts is a C#-based command-line application that demonstrates how you can use self-generated and self-signed X.509 certificates to authenticate with Azure IoT Hub.
+SimpleAzureIoTCerts is a C#-based command-line application that demonstrates how to authenticate with Azure IoT Hub using self-generated and self-signed X.509 certificates.
 
-You can learn more about Azure IoT Hub authentication on the [Control access to IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#supported-x509-certificates) page on the Azure documentation website.
+You can learn more about Azure IoT Hub authentication on the [Control access to IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#supported-x509-certificates) page located on the Azure documentation website.
 
 ## What's included?
 
-To further your code-level understanding, SimpleAzureIoTCerts implements two key, high-level features:
+SimpleAzureIoTCerts implements two key features:
 * Add Device
   * Registers a new device with Azure IoT Hub
-  * Gives you the option of associating X.509 certificates (primary and secondary) with a device at time of registration in three different ways.  Our goal is to give you patterns that you can clone into your own implementation.
-    * Embedded: We've embedded X.509 certificates into the SimpleAzureIoTCerts binary as build-time resources.  Take a look in the "Resources" folder.
-    * Bundled: The build process copies X.509 certificates into the same directory the SimpleAzureIoTCerts binary is output into.  You can then specify these files by name during runtime: primary.crt, primary.pfx, secondary.crt, secondary.pfx.
-    * Bring Your Own: Instead of using the certificates files (CRT, PFX) we've described above, you use use OpenSSL to generate your own.  
+  * Gives you the option of associating X.509 certificates (primary and secondary) with a device at time of registration in three different ways. Our goal is to give you patterns that you can clone into your own implementation. 
+    * Embedded: The build process embeds X.509 certificates into the SimpleAzureIoTCerts binary.  The "Resources" folders contains the CRT and PFX files that will be included.
+    * Bundled: The build process copies standalone X.509 certificate files we've pre-generated into the same directory the SimpleAzureIoTCerts binary is output into.  You can then specify these files by name during runtime when prompted for certificate filenames: primary.crt, primary.pfx, secondary.crt, secondary.pfx.
+    * Bring Your Own: Instead of using the pre-generated certificates files (CRT, PFX) we've described above, you use use OpenSSL to generate your own.  
 * Delete (all) Devices - Deletes the first 1000 devices in an IoT Hub Registry.  This is particularly useful if you need to quickly delete all the devices in your registry.
 
 ## Setup a development environment
@@ -40,6 +40,7 @@ To further your code-level understanding, SimpleAzureIoTCerts implements two key
 * Optionally, you can supply the "Connection string--primary key" value when prompted by SimpleAzureIoTCerts
 * Build and run the app: SimpleAzureIoTCerts
 * Follow the prompts to add a new device and select which X.509 certificates you want to use.
+  * Want to use your own certificates?  Follow the instructions in the section below.
 
 ## (Optional) Self-Generate and Self-Sign X.509 Certificates with OpenSSL 
 
@@ -56,6 +57,14 @@ It's easy to generate, sign, and supply your own X.509 certs to SimpleAzureIoTCe
 We'd love to get your feedback about this sample. You can send your questions and suggestions to us in the Issues section of this repository.
 
 Questions about Azure IoT development in general should be posted to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub). Make sure that your questions or comments are tagged with [azure-iot-hub] or [azure-iot-sdk].
+
+## Additional resources
+
+* [IoT Hub Documentation](https://docs.microsoft.com/en-us/azure/iot-hub/)
+* [Connect your simulated device to your IoT hub using .NET](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-getstarted)
+* [Control Access to IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security)
+* [Secure your IoT deployment](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-security-deployment)
+* [Microsoft Azure IoT SDK for .NET](https://github.com/azure/azure-iot-sdk-csharp)
 
 ## Copyright
 
