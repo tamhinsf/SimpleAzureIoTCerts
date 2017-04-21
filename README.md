@@ -1,6 +1,6 @@
 # Use X.509 Certificates to Authenticate with Azure IoT Hub
 
-SimpleAzureIoTCerts is a C#-based command-line application that demonstrates how self-signed and self-registered X.509 certificates can be used to authenticate a device with Azure IoT Hub.   We'll show you how to associate certificates with a device when it's registered in IoT Hub, and how to use the same certificate for runtime operations.
+SimpleAzureIoTCerts is a C#-based, command-line application that demonstrates how self-signed and self-registered X.509 certificates can be used to authenticate a device with Azure IoT Hub.   We'll show you how to associate certificates with a device when it's registered in IoT Hub, and how to use the same certificate for runtime operations.
 
 You can learn more about Azure IoT Hub authentication on the [Control access to IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#supported-x509-certificates) page located on the Azure documentation website.
 
