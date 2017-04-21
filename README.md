@@ -41,17 +41,21 @@ Deletes the first 1000 devices in an IoT Hub Registry.  This is particularly use
 ## Build and Run SimpleAzureIoTCerts
 
 * Open the cloned code from this repository in Visual Studio
-* Optionally, update the variable _azIotConnectionString_ in Program.cs with the value of "Connection string--primary key", which you just copied from the Azure Portal
-* Or, you can leave the variable _azIotConnectionString_ empty, and supply the "Connection string--primary key" value at startup or when prompted
-  * As a command line argument C:\>SimpleAzureIoTCerts <Connection string--primary key value>
-  * Or when prompted by SimpleAzureIoT 
+  * Optionally, update the variable _azIotConnectionString_ in Program.cs with the value of "Connection string--primary key", which you just copied from the Azure Portal.  Or, you can leave the code as-is and provide the connection string at launch or during runtime.
 * Build and run the app: SimpleAzureIoTCerts
-* Follow the prompts to add a new device and select which X.509 certificates you want to use.
-  * Want to use your own certificates?  Follow the instructions in the section below.
+  * Provide your IoT Hub connection string as a command line argument: i.e. C:\>SimpleAzureIoTCerts <Connection string--primary key value>
+  * Or, you can enter your connection string when prompted
+* Follow the prompts to add a new device
+  * Decide if you want to associate certificates with your new device.
+    * Want to generate your own certificates instead of using the ones we've embedded and bundled?  Follow the instructions in the section below
+    * Azure IoT Hub will create symmetrical (authentication) keys for your new device if you choose not to associate certificates.
+  * After you've successfully added a new device, we'll send a telemetry message.  
+    * See the function SendTelemetryMessage to view the payload.  
+  * Need to clean up your IoT Hub?  The Delete (all) option lets you quickly remove all the devices from your IoT Hub registry
 
 ## (Optional) Self-Generate and Self-Sign X.509 Certificates with OpenSSL 
 
-It's easy to generate, sign, and supply your own X.509 certs to SimpleAzureIoTCerts.
+It's easy to generate, sign, and supply your own X.509 certs to SimpleAzureIoTCerts.  When you're done, copy the CRT and PFX files to the same folder as your SimpleAzureIoTCerts executable, or specify the full path to them when prompted.
 * This command generates a "primary" cert with output of primary.crt and primary.pfx
   * openssl req -newkey rsa:2048 -nodes -keyout primary.key -x509 -days 365 -out primary.crt
   * openssl pkcs12 -export -out primary.pfx -inkey primary.key -in primary.crt 
